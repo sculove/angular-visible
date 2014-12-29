@@ -1,0 +1,24 @@
+{
+  "name": "angular-visible",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sculove/angular-visible",
+  "authors": [
+    "sculove <sculove@gmail.com>"
+  ],
+  "description": "check visibility of DOM elements",
+  "keywords": [
+    "visible",
+    "angular",
+    "check",
+    "lazy",
+    "lazyloading"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
