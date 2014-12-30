@@ -3,9 +3,9 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    dependency : [""],
+    dependency : ["src/angular-visible.js"],
     jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'src/**/*.js'],
       options : { jshintrc: true }
     },
     jstools : {

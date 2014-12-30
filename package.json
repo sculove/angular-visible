@@ -1,7 +1,7 @@
 {
   "name": "angualr-visible",
   "version": "0.0.1",
-  "description": "Check visibility of DOM Elements",
+  "description": "Check if DOM elements are out of window.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -5,7 +5,7 @@
   "authors": [
     "sculove <sculove@gmail.com>"
   ],
-  "description": "check visibility of DOM elements",
+  "description": "Check if DOM elements are out of window. ",
   "keywords": [
     "visible",
     "angular",
@@ -13,12 +13,21 @@
     "lazy",
     "lazyloading"
   ],
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "LGPL v2",
+      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html"
+    }
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "~1.3.8",
+    "jquery": "~2.1.3"
+  }
 }
