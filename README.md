@@ -43,6 +43,7 @@ You can utilize to improve page loading performance.
 You can implement 'lazy loading' easily  
 
 Please refer to following demo :   
+ - Lazy Image example  http://sculove.github.io/demo/angular-visible/lazyLoading.html
 
 
 ## **Issues**
