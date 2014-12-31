@@ -22,9 +22,9 @@ you can use "check-visible" directive
     <!-- ... -->
 </check-visible>
 ```
- - target-class : 
- - check-delay : 
- - check-remove-target :
+ - target-class : class name of the visible targets. `[required attribute]`
+ - check-delay : when firing 'scroll', 'resize'  event, run after delay. (ms)
+ - check-remove-target : determines whether to remove targets when firing 'visible' event.
 
 ### Controller
 you can know visibility DOM elements on the screen, through the 'visible' events
@@ -38,12 +38,12 @@ angular.controller("[contoller Name]", function($scope) {
 });
 ```
 
-## Demos
+## Demo
 You can utilize to improve page loading performance.  
 You can implement 'lazy loading' easily  
 
 Please refer to following demo :   
- - Lazy Image example  http://sculove.github.io/demo/angular-visible/lazyLoading.html
+ - Lazy loading Image example  http://sculove.github.io/demo/angular-visible/lazyLoading.html
 
 
 ## **Issues**
