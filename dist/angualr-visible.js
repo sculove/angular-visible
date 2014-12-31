@@ -2,7 +2,7 @@
 
 angular.module("angular-visible", []).directive("checkVisible", function() {
     return {
-        restrct: "A",
+        restrct: "E",
         compile: function(tElement, tAttrs) {
             var $ngRepeat = tElement.find("[ng-repeat]");
             if ($ngRepeat) $ngRepeat.attr("on-ng-repeat-finished", "");
@@ -10,14 +10,14 @@ angular.module("angular-visible", []).directive("checkVisible", function() {
                 var o = {
                     _el: iEl[0],
                     _targets: [],
-                    _className: iAt.checkVisible,
-                    _isSupportClassName: false,
-                    _delay: Number(iAt.checkDelay),
+                    _className: iAt.targetClass,
+                    _isSupportClassName: iEl[0] && "getElementsByClassName" in iEl[0],
+                    _delay: Number(iAt.checkDelay) || 300,
+                    _removeTarget: "true" == iAt.checkRemoveTarget,
                     _delayTimer: null,
                     refresh: function() {
-                        if (this._el && "getElementsByClassName" in this._el) {
+                        if (this._isSupportClassName) {
                             this._targets = this._el.getElementsByClassName(this._className);
-                            this._isSupportClassName = true;
                             this.refresh = function() {};
                         } else this._targets = iEl.find("." + this._className);
                     },
@@ -45,7 +45,10 @@ angular.module("angular-visible", []).directive("checkVisible", function() {
                             isVisible = !(targetArea.bottom < area.top || area.bottom < targetArea.top || targetArea.right < area.left || area.right < targetArea.left);
                             if (isVisible) visible.unshift(elTarget);
                         }
-                        jQuery(visible).removeClass(this._className);
+                        if (this._removeTarget) {
+                            jQuery(visible).removeClass(this._className);
+                            this.refresh();
+                        }
                         visible.length && scope.$emit("visible", visible);
                     }
                 };

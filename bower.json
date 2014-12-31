@@ -24,7 +24,13 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "demo",
+    "img",
+    ".*",
+    "Gruntfile.js",
+    "*.md",
+    "*.json"
   ],
   "dependencies": {
     "angular": "~1.3.8",
