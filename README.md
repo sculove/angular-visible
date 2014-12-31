@@ -11,13 +11,23 @@ bower install angular-visible
 ## How to use
 
 ### Directive
+you can use "check-visible" directive
 ```html
-<tag check-visible="[target classname]" check-delay="[check delay time (ms)]" ng-controller="[contoller Name]">
+<check-visible target-class="[target classname]" 
+    check-delay="[check delay time (ms)]"
+    check-remove-target="[true/false]" 
+    ng-controller="[contoller Name]">
     <tag class="[target classname]"></tag>
-</tag>
+    <tag class="[target classname]"></tag>
+    <!-- ... -->
+</check-visible>
 ```
+ - target-class : 
+ - check-delay : 
+ - check-remove-target :
 
 ### Controller
+you can know visibility DOM elements on the screen, through the 'visible' events
 ```javascript
 angular.controller("[contoller Name]", function($scope) {
     // ...
@@ -29,10 +39,10 @@ angular.controller("[contoller Name]", function($scope) {
 ```
 
 ## Demos
-You can utilize to improve page loading performance.
-You can implement 'lazy loading' easily
+You can utilize to improve page loading performance.  
+You can implement 'lazy loading' easily  
 
-Please refer to following demo : 
+Please refer to following demo :   
 
 
 ## **Issues**

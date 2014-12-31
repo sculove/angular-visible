@@ -3,7 +3,7 @@
 angular.module("angular-visible", [])
 .directive("checkVisible", function() {
 	return {
-		restrct : "A",
+		restrct : "E",
 		compile : function(tElement, tAttrs) {
 			var $ngRepeat = tElement.find("[ng-repeat]");
 			// set ng-repeat finishied event
@@ -14,14 +14,14 @@ angular.module("angular-visible", [])
 				var o = {
 					_el : iEl[0],
 					_targets : [],
-					_className : iAt.checkVisible,
-					_isSupportClassName : false,
-					_delay : Number(iAt.checkDelay),
+					_className : iAt.targetClass,
+					_isSupportClassName : (iEl[0] && "getElementsByClassName" in iEl[0]),
+					_delay : Number(iAt.checkDelay) || 300,
+					_removeTarget : iAt.checkRemoveTarget == "true",
 					_delayTimer : null,
 					refresh : function() {
-						if(this._el && "getElementsByClassName" in this._el) {	// supported
+						if(this._isSupportClassName) {	// supported
 							this._targets = this._el.getElementsByClassName(this._className);
-							this._isSupportClassName  = true;
 							this.refresh = function() {};
 						} else {
 							this._targets = iEl.find("." +this._className);
@@ -70,7 +70,12 @@ angular.module("angular-visible", [])
 							// 	invisible.push(elTarget);
 							}
 						}
-						jQuery(visible).removeClass(this._className);
+
+						// post process
+						if(this._removeTarget) {
+							jQuery(visible).removeClass(this._className);
+							this.refresh();
+						}
 						visible.length && scope.$emit("visible", visible);
 						// invisible.length && scope.$emit("invisible", invisible);
 					}

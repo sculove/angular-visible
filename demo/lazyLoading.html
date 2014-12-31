@@ -8,6 +8,7 @@
   <style>
   .container {
       padding:10px 20px 10px 10px;
+      display:block;
   }
   .box {
       width:100%; height:90px; border:1px solid #aaa; background-color:#eee;
@@ -26,12 +27,17 @@
   <script src="app.lazyLoading.js"></script>
 </head>
 <body ng-app="App.lazyLoading">
-<h2>Angular-Visible Directive</h2>
-<div class="container" ng-controller="Controller.LazyLoading as main" check-visible="lazy" check-delay="500">
-  <div>
-    <button ng-click="main.createData()">Create Data</button>
-  </div>
-  <div ng-repeat="ele in main.list" ng-class="ele.isTarget ? 'box lazy' : 'box'"><span ng-if ="!ele.isTarget">I'm not a 'lazy loading' target</span> {{ele.no}}</div>
-</div>
+  <h2>Angular-Visible Directive</h2>
+  <h3>[example] image lazy loading</h3>
+  <check-visible class="container" ng-controller="Controller.LazyLoading as main"
+    target-class="lazy"
+    check-delay="500"
+    check-remove-target="true"
+  >
+    <div>
+      <button ng-click="main.createData()">Create Data</button>
+    </div>
+    <div ng-repeat="ele in main.list" ng-class="ele.isTarget ? 'box lazy' : 'box'"><span ng-if ="!ele.isTarget">I'm not a 'visible' target</span> {{ele.no}}</div>
+  </check-visible>
 </body>
 </html>
