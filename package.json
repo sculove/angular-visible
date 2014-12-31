@@ -1,5 +1,5 @@
 {
-  "name": "angualr-visible",
+  "name": "angular-visible",
   "version": "0.0.1",
   "description": "Check if DOM elements are out of window.",
   "scripts": {

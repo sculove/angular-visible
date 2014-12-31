@@ -32,7 +32,7 @@ you can know visibility DOM elements on the screen, through the 'visible' events
 angular.controller("[contoller Name]", function($scope) {
     // ...
     $scope.$on("visible", function(e,data) {
-        // you can get visible elements on the screen
+        // you can get visibility DOM elements on the screen
         // data = [ element, ... ]
     });
 });

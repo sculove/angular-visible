@@ -26,6 +26,7 @@
     "test",
     "tests",
     "demo",
+    "src",
     "img",
     ".*",
     "Gruntfile.js",
