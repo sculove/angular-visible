@@ -55,3 +55,6 @@ Licensed under LGPL v2:
 https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html  
 
 [![Analytics](https://ga-beacon.appspot.com/UA-37362821-7/angular-visible/readme)](https://github.com/sculove/angular-visible)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sculove/angular-visible/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
