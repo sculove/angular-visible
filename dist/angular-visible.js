@@ -42,6 +42,7 @@ angular.module("angular-visible", []).directive("checkVisible", function() {
                         for (var i = this._targets.length - 1, elTarget, targetArea, isVisible; i >= 0; i--) {
                             elTarget = this._targets[i];
                             targetArea = elTarget.getBoundingClientRect();
+                            if (0 === targetArea.width && 0 === targetArea.height) continue;
                             isVisible = !(targetArea.bottom < area.top || area.bottom < targetArea.top || targetArea.right < area.left || area.right < targetArea.left);
                             if (isVisible) visible.unshift(elTarget);
                         }
@@ -52,9 +53,7 @@ angular.module("angular-visible", []).directive("checkVisible", function() {
                         visible.length && scope.$emit("visible", visible);
                     }
                 };
-                jQuery(window).on("scroll", function() {
-                    o.check();
-                }).on("resize", function() {
+                jQuery(window).on("scroll resize", function() {
                     o.check();
                 });
                 scope.$on("ngRepeatFinished", function(e) {
@@ -63,7 +62,7 @@ angular.module("angular-visible", []).directive("checkVisible", function() {
                 });
                 scope.$on("destroy", function(e) {
                     clearTimeout(this._delayTimer);
-                    jQuery(window).off("resize").off("scroll");
+                    jQuery(window).off("resize scroll");
                 });
             };
         }

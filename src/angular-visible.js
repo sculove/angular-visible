@@ -44,30 +44,27 @@ angular.module("angular-visible", [])
 					},
 					_check : function() {
 						var visible = [],
-							// invisible = [],
-						// if(this._el  == document) {
 							area = {
 								top : 0,
 								left : 0,
 								bottom : window.innerHeight,
 								right : window.innerWidth
 							};
-						// } else {
-						// 	area = this._el.getBoundingClientRect();
-						// }
-						//
+
 						for(var i=this._targets.length -1, elTarget, targetArea, isVisible; i >= 0; i--) {
 							elTarget = this._targets[i];
 							targetArea = elTarget.getBoundingClientRect();
 							// beforeVal = !!elTarget.__VISIBLE;
+							// check display:none element
+							if (targetArea.width === 0 && targetArea.height === 0) {
+								continue;
+							}
 							isVisible = !(
 					                targetArea.bottom < area.top || area.bottom < targetArea.top || targetArea.right < area.left || area.right < targetArea.left
 					            );
 							// console.info(afterVal, i, targetArea);
 							if (isVisible) {
 								visible.unshift(elTarget);
-							// } else {
-							// 	invisible.push(elTarget);
 							}
 						}
 
@@ -77,13 +74,10 @@ angular.module("angular-visible", [])
 							this.refresh();
 						}
 						visible.length && scope.$emit("visible", visible);
-						// invisible.length && scope.$emit("invisible", invisible);
 					}
 				};
 				// bind event
-				jQuery(window).on("scroll", function() {
-					o.check();
-				}).on("resize", function() {
+				jQuery(window).on("scroll resize", function() {
 					o.check();
 				});
 
@@ -93,7 +87,7 @@ angular.module("angular-visible", [])
 				});
 				scope.$on("destroy", function(e) {
 					clearTimeout(this._delayTimer);
-					jQuery(window).off("resize").off("scroll");
+					jQuery(window).off("resize scroll");
 				});
 			};
 		}
