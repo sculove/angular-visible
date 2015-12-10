@@ -16,12 +16,7 @@
     "lazyloading"
   ],
   "author": "sculove",
-  "licenses": [
-    {
-      "type": "LGPL v2",
-      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sculove/angualr-visible/issues"
   },
