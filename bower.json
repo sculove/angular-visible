@@ -28,7 +28,7 @@
     "*.md",
     "*.json"
   ],
-  "dependencies": {
+  "devDependencies": {
     "angular": "~1.3.8",
     "jquery": "~2.1.3"
   }
