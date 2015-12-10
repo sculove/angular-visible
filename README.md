@@ -52,6 +52,6 @@ https://github.com/sculove/angular-visible/issues
 
 ## License
 Licensed under MIT:  
-https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html  
+https://opensource.org/licenses/MIT 
 
 [![Analytics](https://ga-beacon.appspot.com/UA-37362821-7/angular-visible/readme)](https://github.com/sculove/angular-visible)
